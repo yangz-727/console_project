@@ -12,8 +12,6 @@ import domain.User;
 public class ListCollection {
 	
 	//리스트 컬렉션
-	public static ArrayList<User> userList = new ArrayList<>();
-	public static ArrayList<Product> productList = new ArrayList<>();
-	public static ArrayList<Discount> discountList = new ArrayList<Discount>();
+	
 	
 }
