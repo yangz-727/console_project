@@ -14,6 +14,7 @@ public class CU implements Pos {
 		// TODO Auto-generated method stub
 		while(true) {
 			System.out.println("----> ·Î±×ÀÎ");
+			System.out.println("ID : ");
 		}
 	}
 
@@ -26,7 +27,7 @@ public class CU implements Pos {
 	@Override
 	public void getStock() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override

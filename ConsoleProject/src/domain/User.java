@@ -9,6 +9,7 @@ public class User {
 	private String phone;
 	private int money;
 	
+	//»ý¼ºÀÚ
 	public User() {
 		// TODO Auto-generated constructor stub
 	}

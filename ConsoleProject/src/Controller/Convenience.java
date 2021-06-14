@@ -15,8 +15,6 @@ public class Convenience {
 			CU cu = new CU();
 			
 			
-			
-			
 		}
 		
 	}

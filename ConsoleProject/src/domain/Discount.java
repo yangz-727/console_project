@@ -23,6 +23,7 @@ public class Discount {
 		cal.setTime(new Date());
         cal.add(Calendar.DATE, date);	
        
+        // 할인 기간 입력
 		this.endDate = cal.getTime();
 	}
 

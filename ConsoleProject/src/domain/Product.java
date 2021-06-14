@@ -9,7 +9,7 @@ public class Product {
 	private int stock;
 	private Date endDate;
 	
-	//持失切
+	//奄沙 持失切
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
