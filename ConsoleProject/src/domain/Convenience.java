@@ -1,5 +1,6 @@
 package domain;
 
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -238,7 +239,9 @@ public class Convenience implements Pos {
 	@Override
 	public void getProduct() {
 		// TODO Auto-generated method stub
+		
 		addWaste();
+		
 		if (!ListCollection.productList.isEmpty()) {
 			System.out.println("----> 재고확인");
 			System.out.println("============================================================================");
@@ -285,6 +288,15 @@ public class Convenience implements Pos {
 	public void exit() {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public void getProductFile() {
+		try {
+			FileUtill.readFile(1,new File("c:/java/","product.txt"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

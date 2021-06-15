@@ -23,14 +23,9 @@ public class Main {
 	
 	
 	public static void run() {
-		try {
-			FileUtill.readFile(1,new File("c:/java/","product.txt"));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		System.out.println("====================== 편의점 재고관리 프로그램 ======================");
 		Convenience convenience = new Convenience();
+		convenience.getProductFile();
 		convenience.menu();
 	}
 }

@@ -66,18 +66,24 @@ public class FileUtill {
 	public static Object readReader(int type, Reader reader) throws Exception {
 
 		BufferedReader bufferedReader = new BufferedReader(reader);
+		Object list = null;
 
+		if (type == 1 || type == 2) {
+			list = new ArrayList<Product>();
+		} else if (type == 3) {
+			list = new ArrayList<Discount>();
+		} else if (type == 4) {
+
+		} else if (type == 5) {
+
+		}
 		String line;
-		
-		ArrayList<Product> list = new ArrayList<Product>();
-		
 		while ((line = bufferedReader.readLine()) != null) {
 
 			String[] str = line.split(","); // 읽어온 라인을 , 기준으로 분해
 			if (type == 1) {
 				Product temp = new Product(str[0], Integer.parseInt(str[1]), Integer.parseInt(str[2]), str[3]);
-				
-				list.add(temp);
+				((ArrayList<Product>) list).add(temp);
 			} else if (type == 2) {
 				Product temp = new Product(str[0], Integer.parseInt(str[1]), Integer.parseInt(str[2]), str[3]);
 				((ArrayList<Product>) list).add(temp);

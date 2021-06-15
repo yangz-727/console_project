@@ -3,12 +3,11 @@ package domain;
 import java.util.Calendar;
 import java.util.Date;
 
-
 public class Discount {
 	private int product_no;
 	private int rate;
 	private Date endDate;
-	
+
 	public Discount() {
 		// TODO Auto-generated constructor stub
 	}
@@ -16,21 +15,21 @@ public class Discount {
 	public Discount(int product_no, int rate, int date) {
 		this.product_no = product_no;
 		this.rate = rate;
-		
+
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date());
-        cal.add(Calendar.DATE, date);	
-       
-        // 할인 기간 입력
+		cal.add(Calendar.DATE, date);
+
+		// 할인 기간 입력
 		this.endDate = cal.getTime();
 	}
-	
+
 	public Discount(int product_no, int rate, Date date) {
 		this.product_no = product_no;
 		this.rate = rate;
 		this.endDate = date;
 	}
-	
+
 	public int getProduct_no() {
 		return product_no;
 	}
@@ -54,7 +53,5 @@ public class Discount {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	
-	
-	
+
 }
