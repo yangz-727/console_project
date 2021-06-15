@@ -1,25 +1,34 @@
 package domain;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import Controller.Main;
 
 public class Product {
 	private int no;
 	private String productName;
 	private int price;
 	private int stock;
-	private Date endDate;
+	private String endDate;
 	
 	//기본 생성자
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Product(int no, String productName, int price, int stock, Date date) {
-		this.no = no;
+	public Product(String productName, int price, int stock, String date) {
+		this.no = Main.productList.size()+1;
 		this.productName = productName;
 		this.price = price;
 		this.stock = stock;
-		this.endDate = date;
+		try {
+			Date temp = new SimpleDateFormat("yyyyMMdd").parse(date);
+			this.endDate = new SimpleDateFormat("yyyy-MM-dd").format(temp);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println(e);
+		}
 	}
 	
 	//getter/setter
@@ -48,11 +57,11 @@ public class Product {
 		this.stock = stock;
 	}
 
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 
