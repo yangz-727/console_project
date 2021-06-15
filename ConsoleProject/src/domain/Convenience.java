@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import Controller.Main;
+import dto.ListCollection;
 import Controller.Main;
 import java.util.Date;
 import java.util.Scanner;
@@ -97,7 +98,7 @@ public class Convenience implements Pos {
 			System.out.print("money : ");
 			int money = Main.scan.nextInt();
 			User temp = new User(id, password, name, email, money);
-			Main.userList.add(temp);
+			ListCollection.userList.add(temp);
 			System.out.println("----> 회원가입 완료");
 		}
 	}
@@ -111,7 +112,7 @@ public class Convenience implements Pos {
 		System.out.print("Password : ");
 		String password = Main.scan.next();
 
-		for (User temp : Main.userList) {
+		for (User temp : ListCollection.userList) {
 			if (temp.getId().equals(id) && temp.getPassword().equals(password)) {
 				System.out.println("----> 로그인 성공");
 				this.money = temp.getMoney();
@@ -126,8 +127,8 @@ public class Convenience implements Pos {
 		System.out.print("ID : ");
 		String id = Main.scan.next();
 
-		for (int i = 0; i < Main.userList.size(); i++) {
-			if (Main.userList.get(i).equals(id)) {
+		for (int i = 0; i < ListCollection.userList.size(); i++) {
+			if (ListCollection.userList.get(i).equals(id)) {
 				System.out.println("동일한 아이디가 존재합니다");
 				return null;
 			}
@@ -148,20 +149,20 @@ public class Convenience implements Pos {
 		System.out.print("유통기한(YYYYMMDD) : ");
 		String date = Main.scan.next();
 		Product temp = new Product(name, price, stock, date);
-		Main.productList.add(temp);
+		ListCollection.productList.add(temp);
 		System.out.println("----> 제품등록 완료");
 	}
 
 	@Override
 	public void addWaste() {
 		Date today = new Date();
-		for (int i = 0; i < Main.productList.size(); i++) {
+		for (int i = 0; i < ListCollection.productList.size(); i++) {
 			try {
-				Product temp = Main.productList.get(i);
+				Product temp = ListCollection.productList.get(i);
 				Date date = new SimpleDateFormat("yyyy-MM-dd").parse(temp.getEndDate());
 				if (today.after(date)) {
-					Main.wasteList.add(temp);
-					Main.productList.remove(i);
+					ListCollection.wasteList.add(temp);
+					ListCollection.productList.remove(i);
 				}
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
@@ -185,14 +186,14 @@ public class Convenience implements Pos {
 	@Override
 	public void deleteWaste() {
 		// TODO Auto-generated method stub
-		if(!Main.wasteList.isEmpty()) {
+		if(!ListCollection.wasteList.isEmpty()) {
 			scan = new Scanner(System.in);
 			getWaste();
 			System.out.println("----> 페기제품처분");
 			System.out.print("처분할 폐기제품번호 : ");
 			int no = scan.nextInt();
-			if (Main.wasteList.get(no - 1) != null) {
-				Main.wasteList.remove(no - 1);
+			if (ListCollection.wasteList.get(no - 1) != null) {
+				ListCollection.wasteList.remove(no - 1);
 				System.out.println("----> 폐기처분 완료");
 			} else {
 				System.out.println("----> 제품번호를 잘못 입력하셨습니다");
@@ -205,14 +206,14 @@ public class Convenience implements Pos {
 	@Override
 	public void deleteProduct() {
 		// TODO Auto-generated method stub
-		if (!Main.productList.isEmpty()) {
+		if (!ListCollection.productList.isEmpty()) {
 			scan = new Scanner(System.in);
 			getProduct();
 			System.out.println("----> 재고삭제");
 			System.out.print("처분할 제품번호 : ");
 			int no = scan.nextInt();
-			if (Main.productList.get(no - 1) != null) {
-				Main.productList.remove(no - 1);
+			if (ListCollection.productList.get(no - 1) != null) {
+				ListCollection.productList.remove(no - 1);
 				System.out.println("----> 재고삭제 완료");
 			} else {
 				System.out.println("----> 제품번호를 잘못 입력하셨습니다");
@@ -232,12 +233,12 @@ public class Convenience implements Pos {
 	public void getProduct() {
 		// TODO Auto-generated method stub
 		addWaste();
-		if (!Main.productList.isEmpty()) {
+		if (!ListCollection.productList.isEmpty()) {
 			System.out.println("----> 재고확인");
 			System.out.println("============================================================================");
 			System.out.println("제품번호\t\t제품명\t\t재고\t\t가격\t\t유통기한");
 			System.out.println("============================================================================");
-			for (Product temp : Main.productList) {
+			for (Product temp : ListCollection.productList) {
 				System.out.println("[" + temp.getNo() + "]\t\t" + temp.getProductName() + "\t\t" + temp.getStock()
 						+ "\t\t" + temp.getPrice() + "\t\t" + temp.getEndDate());
 			}
@@ -252,12 +253,12 @@ public class Convenience implements Pos {
 	public void getWaste() {
 		// TODO Auto-generated method stub
 		addWaste();
-		if (!Main.wasteList.isEmpty()) {
+		if (!ListCollection.wasteList.isEmpty()) {
 			System.out.println("----> 폐기상품확인");
 			System.out.println("============================================================================");
 			System.out.println("제품번호\t\t제품명\t\t재고\t\t가격\t\t유통기한");
 			System.out.println("============================================================================");
-			for (Product temp : Main.wasteList) {
+			for (Product temp : ListCollection.wasteList) {
 				System.out.println("[" + temp.getNo() + "]\t\t" + temp.getProductName() + "\t\t" + temp.getStock()
 						+ "\t\t" + temp.getPrice() + "\t\t" + temp.getEndDate());
 			}
