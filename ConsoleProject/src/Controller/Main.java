@@ -10,10 +10,7 @@ import domain.User;
 
 public class Main {
 
-	public static ArrayList<User> userList = new ArrayList<>();
-	public static ArrayList<Product> productList = new ArrayList<>();
-	public static ArrayList<Product> wasteList = new ArrayList<Product>();
-	public static ArrayList<Discount> discountList = new ArrayList<Discount>();
+	
 	public static Scanner scan = new Scanner(System.in);
 	
 	

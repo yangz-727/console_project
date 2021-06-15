@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import Controller.Main;
+import dto.ListCollection;
 
 public class Product {
 	private int no;
@@ -18,7 +19,7 @@ public class Product {
 	}
 	
 	public Product(String productName, int price, int stock, String date) {
-		this.no = Main.productList.size()+1;
+		this.no = ListCollection.productList.size()+1;
 		this.productName = productName;
 		this.price = price;
 		this.stock = stock;
