@@ -177,16 +177,56 @@ public class Convenience implements Pos {
 			}
 		}
 	}
+	
+	// 할인관리메뉴
+		public void discountMenu() {
+			while (true) {
+				System.out.println("0돌아가기 1할인등록 2할인률적용 3할인취소");
+				System.out.print("선택 : ");
+				int select = Main.scan.nextInt();
+				if (select == 1) {
+					addDiscount();
+				} else if (select == 2) {
+					getDiscount();
+				} else if (select == 3) {
+					deleteDiscount();
+
+				} else if (select == 0) {
+					break;
+				}
+			}
+		}
+
 
 	@Override
 	public void addDiscount() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("----> 할인등록");
+		System.out.print("제품번호 ");
+		int no = Main.scan.nextInt();
+		System.out.print("할인율: ");
+		int rate = Main.scan.nextInt();
+		System.out.print("할인기간 : ");
+		int date = Main.scan.nextInt();
+		Discount temp = new Discount(no, rate, date);
+		ListCollection.discountList.add(temp);
+		System.out.println("----> 할인등록 완료");
 	}
 
 	@Override
 	public void deleteDiscount() {
-		// TODO Auto-generated method stub
+		if (!ListCollection.discountList.isEmpty()) {
+			scan = new Scanner(System.in);
+			getDiscount();
+			System.out.println("---> 할인취소 ");
+			System.out.print("취소할 제품번호 : ");
+			int no = scan.nextInt();
+			if (ListCollection.discountList.get(no) != null) {
+				ListCollection.discountList.get(no);
+				System.out.println("---> 할인취소 완료");
+			} else {
+				System.out.println("---> 할인취소상품 없습니다");
+			}
+		}
 
 	}
 
@@ -278,10 +318,19 @@ public class Convenience implements Pos {
 			System.out.println("----> 폐기상품이 없습니다.");
 		}
 	}
-
+	@Override
 	public void getDiscount() {
-		// TODO Auto-generated method stub
+		
+		int no = scan.nextInt();
+		if (!ListCollection.discountList.isEmpty()) {
+			for (Discount temp : ListCollection.discountList) { 
+				if(temp.getProduct_no()==no) {
+				System.out.println("--->할인률적용");	
+				}
+			}
 
+		}
+		return;
 	}
 
 	@Override
