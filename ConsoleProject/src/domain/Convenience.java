@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 
 import Controller.Main;
 import dto.ListCollection;
-import Controller.Main;
+import domain.FileUtill;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -150,6 +150,12 @@ public class Convenience implements Pos {
 		String date = Main.scan.next();
 		Product temp = new Product(name, price, stock, date);
 		ListCollection.productList.add(temp);
+		try {
+			FileUtill.writeFile(1,"c:/java/", "product.txt");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("----> 제품등록 완료");
 	}
 

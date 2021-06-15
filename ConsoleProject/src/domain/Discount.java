@@ -5,7 +5,6 @@ import java.util.Date;
 
 
 public class Discount {
-	private int type;
 	private int product_no;
 	private int rate;
 	private Date endDate;
@@ -14,8 +13,7 @@ public class Discount {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Discount(int type, int product_no, int rate, int date) {
-		this.type =type;
+	public Discount(int product_no, int rate, int date) {
 		this.product_no = product_no;
 		this.rate = rate;
 		
@@ -26,15 +24,13 @@ public class Discount {
         // 할인 기간 입력
 		this.endDate = cal.getTime();
 	}
-
-	public int getType() {
-		return type;
+	
+	public Discount(int product_no, int rate, Date date) {
+		this.product_no = product_no;
+		this.rate = rate;
+		this.endDate = date;
 	}
-
-	public void setType(int type) {
-		this.type = type;
-	}
-
+	
 	public int getProduct_no() {
 		return product_no;
 	}
