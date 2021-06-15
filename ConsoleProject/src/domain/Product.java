@@ -7,7 +7,6 @@ import Controller.Main;
 import dto.ListCollection;
 
 public class Product {
-	private int no;
 	private String productName;
 	private int price;
 	private int stock;
@@ -19,7 +18,6 @@ public class Product {
 	}
 	
 	public Product(String productName, int price, int stock, String date) {
-		this.no = ListCollection.productList.size()+1;
 		this.productName = productName;
 		this.price = price;
 		this.stock = stock;
@@ -33,12 +31,6 @@ public class Product {
 	}
 	
 	//getter/setter
-	public int getNo() {
-		return no;
-	}
-	public void setNo(int no) {
-		this.no = no;
-	}
 	public String getProductName() {
 		return productName;
 	}

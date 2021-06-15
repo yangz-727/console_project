@@ -192,8 +192,8 @@ public class Convenience implements Pos {
 			System.out.println("----> 페기제품처분");
 			System.out.print("처분할 폐기제품번호 : ");
 			int no = scan.nextInt();
-			if (ListCollection.wasteList.get(no - 1) != null) {
-				ListCollection.wasteList.remove(no - 1);
+			if (ListCollection.wasteList.get(no) != null) {
+				ListCollection.wasteList.remove(no);
 				System.out.println("----> 폐기처분 완료");
 			} else {
 				System.out.println("----> 제품번호를 잘못 입력하셨습니다");
@@ -212,8 +212,8 @@ public class Convenience implements Pos {
 			System.out.println("----> 재고삭제");
 			System.out.print("처분할 제품번호 : ");
 			int no = scan.nextInt();
-			if (ListCollection.productList.get(no - 1) != null) {
-				ListCollection.productList.remove(no - 1);
+			if (ListCollection.productList.get(no) != null) {
+				ListCollection.productList.remove(no);
 				System.out.println("----> 재고삭제 완료");
 			} else {
 				System.out.println("----> 제품번호를 잘못 입력하셨습니다");
@@ -238,8 +238,9 @@ public class Convenience implements Pos {
 			System.out.println("============================================================================");
 			System.out.println("제품번호\t\t제품명\t\t재고\t\t가격\t\t유통기한");
 			System.out.println("============================================================================");
-			for (Product temp : ListCollection.productList) {
-				System.out.println("[" + temp.getNo() + "]\t\t" + temp.getProductName() + "\t\t" + temp.getStock()
+			for (int i=0;i<ListCollection.productList.size();i++) {
+				Product temp = ListCollection.productList.get(i);
+				System.out.println("[" + i + "]\t\t" + temp.getProductName() + "\t\t" + temp.getStock()
 						+ "\t\t" + temp.getPrice() + "\t\t" + temp.getEndDate());
 			}
 			System.out.println("============================================================================");
@@ -258,8 +259,9 @@ public class Convenience implements Pos {
 			System.out.println("============================================================================");
 			System.out.println("제품번호\t\t제품명\t\t재고\t\t가격\t\t유통기한");
 			System.out.println("============================================================================");
-			for (Product temp : ListCollection.wasteList) {
-				System.out.println("[" + temp.getNo() + "]\t\t" + temp.getProductName() + "\t\t" + temp.getStock()
+			for (int i=0;i<ListCollection.wasteList.size();i++) {
+				Product temp = ListCollection.wasteList.get(i);
+				System.out.println("[" + i + "]\t\t" + temp.getProductName() + "\t\t" + temp.getStock()
 						+ "\t\t" + temp.getPrice() + "\t\t" + temp.getEndDate());
 			}
 			System.out.println("============================================================================");
