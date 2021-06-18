@@ -326,18 +326,18 @@ public class Convenience implements Pos {
 		if (!ListCollection.discountList.isEmpty()) {
 			System.out.println("--->할인율적용");	
 			System.out.println("============================================================================");	
-			System.out.println("제품번호\t\t제품명\t\t재고\t\t가격\t\t할인율\t\t유통기한");
+			System.out.println("제품번호\t\t제품명\t\t할인율\t\t유통기한");
 			System.out.println("============================================================================");
 	for (Discount temp : ListCollection.discountList) { 
 				if(temp.getProduct_no()==no) {
-					System.out.println("[" + no + "]\t\t" + temp.getProduct_no()+ "\t\t" + temp.getStock()
-					+ "\t\t" + temp.getPrice() + "\t\t" + temp.getDiscount()+"\t\t" + temp.getEndDate()); 
+					System.out.println("[" + no + "]\t\t" + temp.getProduct_no()+ "\t\t" + 
+				"\t\t" + temp.getRate()+"\t\t" + temp.getEndDate()); 
 					}
 				
 				System.out.println("--->할인율적용");	
 				} 
 			}
-		}
+		
 		return;
 	}
 	
