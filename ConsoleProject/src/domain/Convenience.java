@@ -87,7 +87,7 @@ public class Convenience implements Pos {
 	// 할인관리메뉴
 	public void discountMenu() {
 		while (true) {
-			System.out.println("0돌아가기 1할인등록 2할인률적용 3할인취소");
+			System.out.println("0돌아가기 1할인등록 2할인율적용 3할인취소");
 			System.out.print("선택 : ");
 			int select = Main.scan.nextInt();
 			if (select == 1) {
@@ -222,7 +222,7 @@ public class Convenience implements Pos {
 			System.out.print("취소할 제품번호 : ");
 			int no = scan.nextInt();
 			if (ListCollection.discountList.get(no) != null) {
-				ListCollection.discountList.get(no);
+				ListCollection.discountList.remove(no);
 				System.out.println("---> 할인취소 완료");
 			} else {
 				System.out.println("---> 할인취소상품 없습니다");
@@ -340,9 +340,8 @@ public class Convenience implements Pos {
 		
 		return;
 	}
+
 	
-
-
 	@Override
 	public void exit() {
 		// TODO Auto-generated method stub
