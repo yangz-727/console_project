@@ -42,7 +42,7 @@ public class Convenience implements Pos {
 						} else if (select == 2) {
 							productMenu();
 						} else if (select == 3) {
-
+							discountMenu();
 						} else if (select == 0) {
 							break;
 						}
@@ -78,6 +78,25 @@ public class Convenience implements Pos {
 				getWaste();
 			} else if (select == 5) {
 				deleteWaste();
+			} else if (select == 0) {
+				break;
+			}
+		}
+	}
+
+	// 할인관리메뉴
+	public void discountMenu() {
+		while (true) {
+			System.out.println("0돌아가기 1할인등록 2할인률적용 3할인취소");
+			System.out.print("선택 : ");
+			int select = Main.scan.nextInt();
+			if (select == 1) {
+				addDiscount();
+			} else if (select == 2) {
+				getDiscount();
+			} else if (select == 3) {
+				deleteDiscount();
+
 			} else if (select == 0) {
 				break;
 			}
@@ -177,25 +196,7 @@ public class Convenience implements Pos {
 			}
 		}
 	}
-	
-	// 할인관리메뉴
-		public void discountMenu() {
-			while (true) {
-				System.out.println("0돌아가기 1할인등록 2할인률적용 3할인취소");
-				System.out.print("선택 : ");
-				int select = Main.scan.nextInt();
-				if (select == 1) {
-					addDiscount();
-				} else if (select == 2) {
-					getDiscount();
-				} else if (select == 3) {
-					deleteDiscount();
 
-				} else if (select == 0) {
-					break;
-				}
-			}
-		}
 
 
 	@Override
@@ -323,15 +324,24 @@ public class Convenience implements Pos {
 		
 		int no = scan.nextInt();
 		if (!ListCollection.discountList.isEmpty()) {
-			for (Discount temp : ListCollection.discountList) { 
+			System.out.println("--->할인율적용");	
+			System.out.println("============================================================================");	
+			System.out.println("제품번호\t\t제품명\t\t재고\t\t가격\t\t할인율\t\t유통기한");
+			System.out.println("============================================================================");
+	for (Discount temp : ListCollection.discountList) { 
 				if(temp.getProduct_no()==no) {
-				System.out.println("--->할인률적용");	
-				}
+					System.out.println("[" + no + "]\t\t" + temp.getProduct_no()+ "\t\t" + temp.getStock()
+					+ "\t\t" + temp.getPrice() + "\t\t" + temp.getDiscount()+"\t\t" + temp.getEndDate()); 
+					}
+				
+				System.out.println("--->할인율적용");	
+				} 
 			}
-
 		}
 		return;
 	}
+	
+
 
 	@Override
 	public void exit() {

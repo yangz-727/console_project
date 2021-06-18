@@ -53,5 +53,7 @@ public class Discount {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-
+	
+	
+	
 }
