@@ -1,8 +1,9 @@
 ### 편의점 재고관리 프로그램
  양지현, 김예진
 
-! amdin.txt(관리자정보), product.txt, discount.txt, sales.txt, waste.txt : 파일이 미리 생성되어 있다고 가정 !
- amdin.txt ( 관리자 정보 파일은 관리자아이디,관리자비밀번호,잔액 미리 저장되어 있어야한다 )
+! amdin.txt(관리자정보), product.txt, discount.txt, sales.txt, waste.txt : 파일이 미리 생성되어 있다고 가정
+
+! amdin.txt ( 관리자 정보 파일은 관리자아이디,관리자비밀번호,잔액 미리 저장되어 있어야한다 )
 
 1 판매관리
  - 제품결제 : 결제
