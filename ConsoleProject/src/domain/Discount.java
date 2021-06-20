@@ -6,7 +6,7 @@ import java.util.Date;
 public class Discount {
 	private int product_no;
 	private int rate;
-	private Date endDate;
+	private String endDate;
 
 	public Discount() {
 		// TODO Auto-generated constructor stub
@@ -19,12 +19,14 @@ public class Discount {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date());
 		cal.add(Calendar.DATE, date);
-
+		String year = cal.get(Calendar.YEAR)+"";
+		String month = String.format("%02d", cal.get(Calendar.MONTH)+1);
+		String day = String.format("%02d", cal.get(Calendar.DATE));
 		// 할인 기간 입력
-		this.endDate = cal.getTime();
+		this.endDate = year+month+day;
 	}
-
-	public Discount(int product_no, int rate, Date date) {
+	
+	public Discount(int product_no, int  rate, String date) {
 		this.product_no = product_no;
 		this.rate = rate;
 		this.endDate = date;
@@ -46,14 +48,12 @@ public class Discount {
 		this.rate = rate;
 	}
 
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
-	
-	
-	
+
 }

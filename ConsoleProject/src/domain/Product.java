@@ -3,9 +3,6 @@ package domain;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import Controller.Main;
-import dto.ListCollection;
-
 public class Product {
 	private String productName;
 	private int price;
@@ -21,13 +18,7 @@ public class Product {
 		this.productName = productName;
 		this.price = price;
 		this.stock = stock;
-		try {
-			Date temp = new SimpleDateFormat("yyyyMMdd").parse(date);
-			this.endDate = new SimpleDateFormat("yyyy-MM-dd").format(temp);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			System.out.println(e);
-		}
+		this.endDate = date;
 	}
 	
 	//getter/setter

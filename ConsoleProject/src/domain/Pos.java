@@ -13,8 +13,7 @@ public interface Pos {
 	public void getProduct();
 	public void getWaste();
 	public void getDiscount();
-	public void signup();
-	public String login();
+	public boolean login();
 	public void exit();
 	
 	
